@@ -1020,6 +1020,43 @@ h3 {
   padding: 2rem clamp(1rem, 4vw, 5rem);
 }
 
+.footer-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-topline {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0 1.4rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(91, 19, 38, 0.12);
+}
+
+.footer-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--ink-700);
+}
+
+.footer-topline h2 {
+  margin-top: 0.45rem;
+  max-width: 14ch;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.05;
+}
+
+.footer-topline-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .footer-logo {
   width: 170px;
   max-width: 100%;
@@ -1030,15 +1067,22 @@ h3 {
 }
 
 .footer-grid {
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr 1.3fr;
+  grid-template-columns: 1.2fr 0.9fr 1.1fr 1.2fr;
   gap: 1rem;
 }
 
 .site-footer h3 {
   font-size: 1.7rem;
+}
+
+.site-footer h4 {
+  margin: 1rem 0 0.55rem;
+  font-family: 'Cinzel', serif;
+  color: var(--burgundy-700);
+  font-size: 0.98rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .site-footer p,
@@ -1048,12 +1092,85 @@ h3 {
   line-height: 1.55;
 }
 
+.site-footer .btn-solid {
+  color: var(--white);
+}
+
+.site-footer .btn-outline {
+  color: var(--burgundy-700);
+}
+
 .site-footer ul {
   margin: 0;
   padding: 0;
   list-style: none;
   display: grid;
   gap: 0.36rem;
+}
+
+.footer-brand-card,
+.footer-school-card {
+  position: relative;
+}
+
+.footer-pill-list,
+.footer-school-meta,
+.footer-social-row,
+.footer-cta-stack,
+.footer-contact-list,
+.footer-link-list {
+  margin-top: 0.8rem;
+}
+
+.footer-pill-list,
+.footer-school-meta,
+.footer-social-row {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.footer-pill-list span,
+.footer-school-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.1rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(91, 19, 38, 0.14);
+  background: rgba(255, 255, 255, 0.84);
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--burgundy-700);
+}
+
+.footer-link-list a,
+.footer-contact-list a,
+.compact-list li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+}
+
+.footer-link-list a:hover,
+.footer-contact-list a:hover {
+  color: var(--burgundy-700);
+}
+
+.compact-list li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.compact-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--burgundy-500);
 }
 
 .footer-address {
@@ -1097,10 +1214,35 @@ h3 {
   border-color: var(--line-soft);
 }
 
+.footer-cta-stack {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.footer-cta-stack a {
+  width: fit-content;
+}
+
+.footer-bottom {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(91, 19, 38, 0.12);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .copyright {
-  max-width: 1200px;
-  margin: 1.2rem auto 0;
+  margin: 0;
   font-size: 0.86rem;
+}
+
+.footer-note {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--ink-700);
 }
 
 .chatbot-root {
@@ -1438,6 +1580,20 @@ h3 {
 }
 
 @media (max-width: 980px) {
+  .footer-topline,
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-topline h2 {
+    max-width: 100%;
+  }
+
+  .footer-topline-actions {
+    justify-content: flex-start;
+  }
+
   .site-header {
     flex-direction: column;
     align-items: flex-start;

@@ -1,54 +1,108 @@
 import { Link } from 'react-router-dom'
-import { contactInfo } from '../data/siteContent'
+import { contactInfo, navLinks, services, trainingInfo, trainingTracks } from '../data/siteContent'
 import logo from '../assets/images/beadmaxlogo.jpeg'
 
 function Footer() {
   const whatsappText = encodeURIComponent(contactInfo.whatsappDefaultMessage)
   const whatsappAutomationLink = `${contactInfo.whatsappLink}?text=${whatsappText}`
+  const trainingWhatsappText = encodeURIComponent(
+    'Hello BeadMax Vocational School, I want to register for training. Please share the next steps.',
+  )
+  const trainingWhatsappLink = `${contactInfo.whatsappLink}?text=${trainingWhatsappText}`
 
   return (
     <footer className="site-footer">
-      <section className="footer-grid">
-        <article>
-          <img src={logo} alt="BeadMax Design" className="footer-logo" />
-          <h3>BeadMax Design</h3>
-          <p>
-            Handcrafted jewelry, beaded bags, and vocational training built with premium
-            craftsmanship and purpose.
-          </p>
-        </article>
+      <div className="footer-shell">
+        <section className="footer-topline">
+          <div>
+            <p className="footer-kicker">Beads • Beauty • Creativity</p>
+            <h2>Professional craftsmanship, trusted delivery, and practical creative training.</h2>
+          </div>
+          <div className="footer-topline-actions">
+            <a href={whatsappAutomationLink} className="btn-solid" target="_blank" rel="noreferrer">
+              Chat on WhatsApp
+            </a>
+            <a href={trainingInfo.registrationForm} className="btn-outline" target="_blank" rel="noreferrer">
+              Register for School
+            </a>
+          </div>
+        </section>
 
-        <article>
-          <h3>Quick Links</h3>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/services">Services</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/team">Team</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </article>
+        <section className="footer-grid">
+          <article className="footer-brand-card">
+            <img src={logo} alt="BeadMax Design" className="footer-logo" />
+            <h3>BeadMax Design</h3>
+            <p>
+              Handcrafted jewelry, beaded bags, and vocational training built with premium
+              craftsmanship, clear communication, and elegant finishing.
+            </p>
+            <div className="footer-pill-list" aria-label="Brand highlights">
+              <span>Ikorodu, Lagos</span>
+              <span>Local & International Delivery</span>
+              <span>AI Support 24/7</span>
+            </div>
+          </article>
 
-        <article>
-          <h3>Contact</h3>
-          <p className="footer-address">{contactInfo.address}</p>
-          <ul>
-            {contactInfo.phones.map((phone) => (
-              <li key={phone}>
-                <a href={`tel:${phone}`}>{phone}</a>
-              </li>
-            ))}
-            <li>
+          <article>
+            <h3>Explore</h3>
+            <ul className="footer-link-list">
+              {navLinks.map((item) => (
+                <li key={item.path}>
+                  <Link to={item.path}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+
+            <h4 className="footer-subtitle">Core Services</h4>
+            <ul className="footer-link-list compact-list">
+              {services.map((service) => (
+                <li key={service.title}>{service.title}</li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="footer-school-card">
+            <h3>{trainingInfo.schoolName}</h3>
+            <p>
+              Learn bead jewelry, creative bag construction, finishing, pricing, and business
+              readiness with guided practical sessions.
+            </p>
+            <div className="footer-school-meta">
+              <span>{trainingInfo.fee}</span>
+              <span>{trainingInfo.duration}</span>
+              <span>{trainingInfo.schedule}</span>
+            </div>
+            <ul className="footer-link-list compact-list">
+              {trainingTracks.slice(0, 3).map((track) => (
+                <li key={track}>{track}</li>
+              ))}
+            </ul>
+            <div className="footer-cta-stack">
+              <a href={trainingInfo.registrationForm} className="btn-solid" target="_blank" rel="noreferrer">
+                Register Now
+              </a>
+              <a href={trainingWhatsappLink} className="btn-outline" target="_blank" rel="noreferrer">
+                Ask About Admission
+              </a>
+            </div>
+          </article>
+
+          <article>
+            <h3>Contact</h3>
+            <p className="footer-address">{contactInfo.address}</p>
+            <ul className="footer-contact-list">
+              {contactInfo.phones.map((phone) => (
+                <li key={phone}>
+                  <a href={`tel:${phone}`}>{phone}</a>
+                </li>
+              ))}
+              {contactInfo.emails.map((email) => (
+                <li key={email}>
+                  <a href={`mailto:${email}`}>{email}</a>
+                </li>
+              ))}
+            </ul>
+            <div className="footer-social-row">
               <a
                 href={whatsappAutomationLink}
                 target="_blank"
@@ -63,8 +117,6 @@ function Footer() {
                 </svg>
                 <span className="sr-only">WhatsApp</span>
               </a>
-            </li>
-            <li>
               <a
                 href={contactInfo.instagramLink}
                 target="_blank"
@@ -79,12 +131,15 @@ function Footer() {
                 </svg>
                 <span className="sr-only">Instagram</span>
               </a>
-            </li>
-          </ul>
-        </article>
-      </section>
+            </div>
+          </article>
+        </section>
 
-      <p className="copyright">© {new Date().getFullYear()} BeadMax Design. All rights reserved.</p>
+        <div className="footer-bottom">
+          <p className="copyright">© {new Date().getFullYear()} BeadMax Design. All rights reserved.</p>
+          <p className="footer-note">Premium beaded bags, jewelry, customer support, and vocational training.</p>
+        </div>
+      </div>
     </footer>
   )
 }

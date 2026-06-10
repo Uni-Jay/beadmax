@@ -19,6 +19,15 @@ export const contactInfo = {
     '51, Ayangburen Road, Opposite Ayangburen Palace, Top Floor, Same building where we have KFC and Samsung office, Ikorodu, Lagos.',
 }
 
+export const trainingInfo = {
+  schoolName: 'BeadMax Vocational School',
+  fee: 'NGN 150,000',
+  duration: '3 months',
+  schedule: 'Flexible timetable',
+  registrationForm:
+    'https://docs.google.com/forms/d/e/1FAIpQLScP9ouLRKyZ4CR97ygDdKWWZZ3_6FE-F87zoILzo46CW58nqg/viewform?usp=header',
+}
+
 export const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'Services', path: '/services' },
