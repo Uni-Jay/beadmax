@@ -136,7 +136,13 @@ function Footer() {
         </section>
 
         <div className="footer-bottom">
-          <p className="copyright">© {new Date().getFullYear()} BeadMax Design. All rights reserved.</p>
+          <p className="copyright">
+            © {new Date().getFullYear()} BeadMax Design. All rights reserved. Website by{' '}
+            <a href="https://www.kurios-sat.tech" target="_blank" rel="noreferrer">
+              Kurios Sat
+            </a>
+            .
+          </p>
           <p className="footer-note">Premium beaded bags, jewelry, customer support, and vocational training.</p>
         </div>
       </div>
