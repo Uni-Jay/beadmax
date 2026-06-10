@@ -1,0 +1,21 @@
+{
+  "name": "BeadMax Design",
+  "short_name": "BeadMax",
+  "description": "BeadMax Design creates handcrafted bags, jewelry, and vocational training opportunities in Lagos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8f3",
+  "theme_color": "#6f1d1b",
+  "icons": [
+    {
+      "src": "/beadmax-logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/beadmax-logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
