@@ -96,11 +96,11 @@ export const team = [
     color: '#2E6A0A',
   },
   {
-    name: 'Noah Christiana',
+    name: 'Iwuchukwu Timothy',
     role: 'Head of Department',
-    phone: '+234 903 679 9843',
+    phone: '+234 812 400 9847',
     bio: 'Oversees departmental execution for bag and jewelry production, team coordination, and service consistency, helping BeadMax maintain premium standards and client satisfaction.',
-    initials: 'NC',
+    initials: 'IT',
     color: '#1A2F52',
   },
 ]
