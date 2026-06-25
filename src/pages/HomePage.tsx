@@ -1,27 +1,68 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import BagCarousel from '../components/BagCarousel'
 import logo from '../assets/images/beadmaxlogo.jpeg'
+import heroVideo from '../assets/video/beadmaxvideo.mp4'
 import { bagCollection, services, trainingTracks } from '../data/siteContent'
 
 function HomePage() {
+  const heroVideoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const unmute = () => {
+      const video = heroVideoRef.current
+      if (video) {
+        video.muted = false
+      }
+      window.removeEventListener('scroll', unmute)
+      window.removeEventListener('click', unmute)
+      window.removeEventListener('keydown', unmute)
+      window.removeEventListener('touchstart', unmute)
+    }
+
+    window.addEventListener('scroll', unmute, { passive: true })
+    window.addEventListener('click', unmute)
+    window.addEventListener('keydown', unmute)
+    window.addEventListener('touchstart', unmute, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', unmute)
+      window.removeEventListener('click', unmute)
+      window.removeEventListener('keydown', unmute)
+      window.removeEventListener('touchstart', unmute)
+    }
+  }, [])
+
   return (
     <>
       <section className="hero-section">
         <div className="hero-panel">
-          <img src={logo} alt="BeadMax Design logo" className="hero-logo" />
-          <p className="eyebrow">Ikorodu, Lagos • Local and International Delivery</p>
-          <h1>Luxury Craftsmanship in Beads and Design</h1>
-          <p className="intro">
-            BeadMax creates statement jewelry and premium beaded bags inspired by timeless
-            elegance, while raising future creators through Beadmax Vocational School.
-          </p>
-          <div className="button-row">
-            <Link to="/services" className="btn-solid">
-              Explore Services
-            </Link>
-            <Link to="/contact" className="btn-outline">
-              Contact Us
-            </Link>
+          <video
+            ref={heroVideoRef}
+            className="hero-video"
+            src={heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <img src={logo} alt="BeadMax Design logo" className="hero-logo" />
+            <p className="eyebrow">Ikorodu, Lagos • Local and International Delivery</p>
+            <h1>Luxury Craftsmanship in Beads and Design</h1>
+            <p className="intro">
+              BeadMax creates statement jewelry and premium beaded bags inspired by timeless
+              elegance, while raising future creators through Beadmax Vocational School.
+            </p>
+            <div className="button-row">
+              <Link to="/services" className="btn-solid">
+                Explore Services
+              </Link>
+              <Link to="/contact" className="btn-outline">
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       </section>
