@@ -30,9 +30,11 @@ export const trainingInfo = {
 
 export const navLinks = [
   { label: 'Home', path: '/' },
+  { label: 'Shop', path: '/shop' },
   { label: 'Services', path: '/services' },
   { label: 'About', path: '/about' },
   { label: 'Team', path: '/team' },
+  { label: 'Careers', path: '/careers' },
   { label: 'Contact', path: '/contact' },
 ]
 
